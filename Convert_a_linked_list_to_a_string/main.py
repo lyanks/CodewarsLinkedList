@@ -5,7 +5,7 @@ class Node():
 
 
 def stringify(node):
-    if node.data is None:
+    if node is None or node.data is None:
         return 'None'
     values = [str(node.data)]
     while node.next is not None:
