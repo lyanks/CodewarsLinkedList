@@ -11,7 +11,7 @@ def loop_size(node):
         return 0
     count = 1
     current = slow.next
-    while current is not slow:
+    while current != slow:
         current = current.next
         count += 1
     return count
