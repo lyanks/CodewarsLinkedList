@@ -1,17 +1,17 @@
 def loop_size(node):
+    if node.next is None or node.next.next is None:
+        return None
     slow, fast = node, node
-
-    while True:
-        slow = slow.next
+    while fast is not None and fast.next is not None:
         fast = fast.next.next
-        if slow is fast:
+        slow = slow.next
+        if slow == fast:
             break
-
-    meeting_point = slow
+    else:
+        return 0
     count = 1
-    current = meeting_point.next
-    while current is not meeting_point:
+    current = slow.next
+    while current is not slow:
         current = current.next
         count += 1
-
     return count
