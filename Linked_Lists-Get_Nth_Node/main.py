@@ -4,6 +4,8 @@ from preloaded import Node
 def get_nth(node, index):
     if index < 0:
         raise IndexError
+    if node is None:
+        raise IndexError
     cur = node
     i = 0
     while i < index:
