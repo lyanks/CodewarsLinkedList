@@ -4,14 +4,10 @@ class Node(object):
         self.next = None
 
 
-def reverse(head: Node):
-    if head is None:
-        return None
-    revers = head
-    tail = Node(revers.data)
-    while revers.next is not None:
-        revers = revers.next
-        head = Node(revers.data)
-        head.next = tail
-        tail = head
-    return tail
+def reverse(head: Node, tail=None):
+    if head is None or head.next is None:
+        return head
+    new_head = reverse(head.next)
+    head.next.next = head
+    head.next = None
+    return new_head
